@@ -1,7 +1,4 @@
 import express from "express";
-import { Request, Response } from "express";
-import Product from "../models/product";
-
 import {
   getProducts,
   postProduct,
@@ -11,11 +8,12 @@ import {
 
 const router = express.Router();
 
+// Route for fetching products with pagination
 router.get("/api/products", getProducts);
-router.post("/api/products", postProduct);
 
+// Other routes
+router.post("/api/products", postProduct);
 router.put("/api/products/:_id", updateProduct);
-router.delete("/api/products/:_id", deleteProduct);
-//router.delete("/api/products/:id", deleteProduct);
+router.delete("/api/products/:id", deleteProduct);
 
 export { router as productRoutes };
